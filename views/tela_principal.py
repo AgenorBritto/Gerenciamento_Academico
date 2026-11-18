@@ -268,6 +268,50 @@ class TelaPrincipal(ctk.CTk):
                 text_color="#6D28D9"
             ).pack(anchor="w", padx=20, pady=(0, 20))
 
+        self.mostrar_pessoas_cadastradas()
+
+    def mostrar_pessoas_cadastradas(self):
+
+        ctk.CTkLabel(
+            self.area_conteudo,
+            text="Pessoas cadastradas",
+            font=("Arial", 18, "bold"),
+            text_color="#1E293B"
+        ).pack(anchor="w", pady=(20, 8))
+
+        lista = ctk.CTkScrollableFrame(
+            self.area_conteudo,
+            height=160,
+            fg_color="#FFFFFF",
+            corner_radius=12,
+            border_width=1,
+            border_color="#E2E8F0"
+        )
+
+        lista.pack(fill="x", pady=(0, 10))
+
+        pessoas = self.gerenciamento.listar_pessoas()
+
+        if not pessoas:
+            ctk.CTkLabel(
+                lista,
+                text="Nenhum aluno ou professor cadastrado ainda.",
+                font=("Arial", 14),
+                text_color="#94A3B8"
+            ).pack(anchor="w", padx=15, pady=10)
+            return
+
+        # Polimorfismo: a mesma chamada apresentar() produz um texto
+        # diferente para Aluno e para Professor, sem nenhum if por tipo.
+        for pessoa in pessoas:
+            ctk.CTkLabel(
+                lista,
+                text=pessoa.apresentar(),
+                font=("Arial", 14),
+                text_color="#334155",
+                anchor="w"
+            ).pack(fill="x", padx=15, pady=4)
+
     def abrir_login_professor(self):
 
         if self.janela_login is not None and self.janela_login.winfo_exists():
@@ -278,4 +322,4 @@ class TelaPrincipal(ctk.CTk):
             self,
             self.gerenciamento,
             self.gerenciamento_professores
-        )
+        )

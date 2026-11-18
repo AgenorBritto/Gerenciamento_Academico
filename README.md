@@ -28,6 +28,7 @@ Aluno ───────┴── Matricula (aluno + oferta + avaliações �
 ```
 
 - `Pessoa` é uma classe abstrata (`ABC`) com o método abstrato `apresentar()`, que cada subclasse implementa à sua maneira.
+- **Polimorfismo:** o dashboard recebe uma lista única de `Pessoa` (`listar_pessoas()`) e chama `apresentar()` em cada item; alunos e professores respondem cada um com sua própria versão, sem nenhum teste de tipo.
 - Todos os atributos são protegidos e só mudam por getters e setters, que validam tipo e valor (textos vazios, idade e vagas positivas, nota entre 0 e 10).
 - Uma **disciplina** é o conteúdo; uma **oferta** é aquela disciplina sendo dada por um professor, para uma turma, num período. O aluno se matricula na oferta, não na disciplina.
 
@@ -71,6 +72,7 @@ python main.py
 
 Os dados ficam em memória enquanto o programa está aberto. A persistência em banco de dados foi opcional neste projeto para quem não cursou a disciplina de Banco de Dados, e por isso não foi implementada. Como toda a lógica de armazenamento está concentrada em `services/gerenciamento.py`, uma camada de SQLite poderia ser adicionada ali sem mudar as telas.
 
-## Autor
+## Autores
 
-**Agenor Britto** — [github.com/AgenorBritto](https://github.com/AgenorBritto)
+- **Agenor Santos Britto** — [github.com/AgenorBritto](https://github.com/AgenorBritto)
+- **Gabriel Santos Britto**

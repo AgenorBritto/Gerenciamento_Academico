@@ -233,6 +233,15 @@ class GerenciamentoAcademico:
     def listar_professores(self):
         return self._professores.copy()
 
+    # ==================================
+    # PESSOAS (ALUNOS + PROFESSORES)
+    # ==================================
+
+    def listar_pessoas(self):
+        # Lista única de objetos Pessoa: quem usa não precisa saber
+        # se cada item é Aluno ou Professor (polimorfismo).
+        return self._alunos + self._professores
+
     
     def editar_professor(
         self,
