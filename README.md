@@ -67,9 +67,9 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Limitações
+## Persistência de dados
 
-Os dados ficam **apenas em memória**: ao fechar o programa, tudo o que foi cadastrado é perdido. Persistir em arquivo (JSON) ou banco (SQLite) é o próximo passo natural.
+Os dados ficam em memória enquanto o programa está aberto. A persistência em banco de dados foi opcional neste projeto para quem não cursou a disciplina de Banco de Dados, e por isso não foi implementada. Como toda a lógica de armazenamento está concentrada em `services/gerenciamento.py`, uma camada de SQLite poderia ser adicionada ali sem mudar as telas.
 
 ## Autor
 
